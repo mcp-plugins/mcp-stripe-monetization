@@ -1,0 +1,95 @@
+{
+  "name": "mcp-stripe-monetization",
+  "version": "1.0.0",
+  "description": "Stripe monetization plugin for MCP (Model Context Protocol) servers - enable billing and subscriptions for your AI tools",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc --project tsconfig.json",
+    "build:cjs": "node scripts/build-cjs.js",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write 'src/**/*.ts'",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "migrate": "node scripts/migrate.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "stripe",
+    "monetization",
+    "billing",
+    "payment",
+    "subscription",
+    "plugin",
+    "typescript",
+    "ai-tools"
+  ],
+  "author": "MCP Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/modelcontextprotocol/mcp-stripe-monetization.git"
+  },
+  "bugs": {
+    "url": "https://github.com/modelcontextprotocol/mcp-stripe-monetization/issues"
+  },
+  "homepage": "https://github.com/modelcontextprotocol/mcp-stripe-monetization#readme",
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0"
+  },
+  "peerDependenciesOptional": {
+    "mcp-proxy-wrapper": "^1.0.0"
+  },
+  "dependencies": {
+    "stripe": "^14.15.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "zod": "^3.22.4",
+    "uuid": "^9.0.1",
+    "better-sqlite3": "^9.2.2",
+    "pg": "^8.11.3",
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/jest": "^29.5.8",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/uuid": "^9.0.7",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/pg": "^8.10.9",
+    "typescript": "^5.3.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "prettier": "^3.1.0",
+    "esbuild": "^0.19.8"
+  },
+  "files": [
+    "dist",
+    "migrations",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
