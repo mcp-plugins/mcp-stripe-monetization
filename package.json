@@ -44,12 +44,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/modelcontextprotocol/mcp-stripe-monetization.git"
+    "url": "https://github.com/mcp-plugins/mcp-stripe-monetization.git"
   },
   "bugs": {
-    "url": "https://github.com/modelcontextprotocol/mcp-stripe-monetization/issues"
+    "url": "https://github.com/mcp-plugins/mcp-stripe-monetization/issues"
   },
-  "homepage": "https://github.com/modelcontextprotocol/mcp-stripe-monetization#readme",
+  "homepage": "https://github.com/mcp-plugins/mcp-stripe-monetization#readme",
   "peerDependencies": {
     "@modelcontextprotocol/sdk": "^0.4.0"
   },
