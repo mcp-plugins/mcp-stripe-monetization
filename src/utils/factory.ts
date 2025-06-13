@@ -3,7 +3,6 @@
  * @version 1.0.0
  */
 
-import { StripeMonetizationPlugin } from '../core/plugin.js';
 import type { StripeMonetizationConfig } from '../interfaces/config.js';
 import { validateConfig } from './helpers.js';
 
@@ -11,7 +10,7 @@ import { validateConfig } from './helpers.js';
  * Create a new Stripe monetization plugin instance
  * 
  * @param config Plugin configuration
- * @returns Configured plugin instance
+ * @returns Validated configuration object
  * 
  * @example
  * ```typescript
@@ -24,13 +23,13 @@ import { validateConfig } from './helpers.js';
  *   defaultPrice: 100
  * });
  * 
- * const plugin = createStripeMonetizationPlugin(config);
+ * const validatedConfig = createStripeMonetizationPlugin(config);
  * ```
  */
-export function createStripeMonetizationPlugin(config: StripeMonetizationConfig): StripeMonetizationPlugin {
+export function createStripeMonetizationPlugin(config: StripeMonetizationConfig): StripeMonetizationConfig {
   // Validate configuration
   validateConfig(config);
   
-  // Create and return plugin instance
-  return new StripeMonetizationPlugin(config);
+  // Return validated config (plugin implementation will be added later)
+  return config;
 }

@@ -170,8 +170,10 @@ export interface AuthenticationConfig {
 export interface DatabaseConfig {
   /** Database type */
   type: DatabaseType;
-  /** Database connection string or config */
-  connection: string | {
+  /** Database connection string */
+  connectionString?: string;
+  /** Database connection config object */
+  connection?: string | {
     host: string;
     port: number;
     database: string;
@@ -179,14 +181,26 @@ export interface DatabaseConfig {
     password: string;
     ssl?: boolean;
   };
+  /** SSL configuration */
+  ssl?: boolean;
   /** Connection pool settings */
   pool?: {
     min: number;
     max: number;
     idleTimeoutMillis: number;
+    acquire?: number;
+    idle?: number;
   };
   /** Auto-run migrations */
   runMigrations: boolean;
+  /** Table prefix */
+  tablePrefix?: string;
+  /** Backup configuration */
+  backup?: {
+    enabled: boolean;
+    interval: string;
+    retention: string;
+  };
 }
 
 /**
@@ -279,4 +293,35 @@ export interface StripeMonetizationConfig {
     version?: string;
     description?: string;
   };
+}
+
+/**
+ * Stripe-specific configuration (alias for compatibility)
+ */
+export interface StripeConfig {
+  /** Stripe secret key */
+  secretKey: string;
+  /** Stripe publishable key */
+  publishableKey: string;
+  /** Webhook secret */
+  webhookSecret: string;
+  /** API version */
+  apiVersion?: string;
+}
+
+/**
+ * Pricing configuration
+ */
+export interface PricingConfig {
+  /** Default price per call in cents */
+  defaultPrice: number;
+  /** Currency code */
+  currency?: string;
+  /** Tool-specific pricing */
+  toolPrices?: Record<string, number>;
+  /** Volume discounts */
+  volumeDiscounts?: Array<{
+    threshold: number;
+    discountPercent: number;
+  }>;
 }

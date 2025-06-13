@@ -18,8 +18,8 @@ export function createBasicSetup(options: {
 }): StripeMonetizationConfig {
   const billing: PerCallConfig = {
     defaultPrice: options.defaultPrice,
-    toolPrices: options.toolPrices,
-    volumeDiscounts: options.volumeDiscounts,
+    ...(options.toolPrices && { toolPrices: options.toolPrices }),
+    ...(options.volumeDiscounts && { volumeDiscounts: options.volumeDiscounts }),
     minimumCharge: 50 // $0.50 minimum
   };
 
@@ -71,7 +71,7 @@ export function createSubscriptionSetup(options: {
       plans: options.plans,
       allowPlanChanges: true,
       prorationBehavior: 'always_invoice',
-      trialPeriodDays: options.trialPeriodDays
+      ...(options.trialPeriodDays !== undefined && { trialPeriodDays: options.trialPeriodDays })
     },
     authentication: {
       method: 'jwt',

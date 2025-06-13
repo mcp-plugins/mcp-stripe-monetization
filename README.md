@@ -1,9 +1,9 @@
 # MCP Stripe Monetization Plugin
 
-> **🚧 WORK IN PROGRESS**  
-> This package is currently under active development and has TypeScript compilation errors.  
+> **📦 CONFIGURATION LIBRARY**  
+> This package provides TypeScript interfaces and configuration helpers for Stripe monetization in MCP servers.  
 > The [MCP Proxy Wrapper](https://www.npmjs.com/package/mcp-proxy-wrapper) is production-ready and published to NPM.  
-> This Stripe monetization plugin will be completed and published soon.
+> Full plugin implementation coming soon - this release provides the foundation interfaces and configuration tools.
 
 A comprehensive Stripe monetization plugin for MCP (Model Context Protocol) servers. Transform your AI tools into revenue-generating services with multiple billing models, enterprise security, and real-time analytics.
 
@@ -16,6 +16,17 @@ A comprehensive Stripe monetization plugin for MCP (Model Context Protocol) serv
 ```bash
 npm install mcp-stripe-monetization
 ```
+
+### What's Available Now
+
+This package currently provides:
+
+- **✅ Complete TypeScript interfaces** for all billing models
+- **✅ Configuration helpers** for easy setup
+- **✅ Type-safe configuration validation**
+- **✅ Multiple billing model support** (per-call, subscription, freemium, credit system)
+- **✅ Database and authentication interfaces**
+- **🚧 Plugin implementation** (coming in next release)
 
 ## 📖 How to Use
 
